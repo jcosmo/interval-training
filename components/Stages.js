@@ -4,8 +4,8 @@ import Stage from './Stage';
 
 const Stages = props => {
   return (
-    <ScrollView>
-      {props.tabs.map((t) => <Stage  data={t}/>)}
+    <ScrollView style={styles.stages}>
+      {props.tabs.map((t) => <Stage data={t}/>)}
     </ScrollView>
   );
 };

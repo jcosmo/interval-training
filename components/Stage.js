@@ -5,7 +5,7 @@ const Stage = props => {
   return (
     <View key={props.data.id} style={styles.stage}>
       <Text style={styles.text}>{props.data.text}</Text>
-      <Image style={styles.deleteIcon} source={require("../assets/delete.png")}/>
+      <Image style={styles.icon} source={require("../assets/delete.png")}/>
     </View>
   );
 };
@@ -26,10 +26,11 @@ const styles = StyleSheet.create({
     flexGrow: 0,
   },
 
-  deleteIcon: {
+  icon: {
     height: 15,
     width: 15,
-    flexGrow: 0
+    flexGrow: 0,
+    flexShrink: 0
   }
 });
 

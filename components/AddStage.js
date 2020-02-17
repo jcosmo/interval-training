@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import {Button, StyleSheet, TextInput, View} from 'react-native';
+import {Image, StyleSheet, TextInput, View} from 'react-native';
+import {TouchableWithoutFeedback} from 'react-native-web';
 
 const AddStage = props => {
   const [newStageText, setNewStageText] = useState('');
@@ -7,7 +8,9 @@ const AddStage = props => {
   return (
     <View style={styles.container}>
       <TextInput style={styles.input} value={newStageText} onChangeText={setNewStageText} placeholder='aaa'/>
-      <Button title="Add Stage" onPress={props.action.bind(this, newStageText)}/>
+      <TouchableWithoutFeedback onPress={props.action.bind(this, newStageText)}>
+        <Image style={styles.icon} source={require('../assets/add.png')}/>
+      </TouchableWithoutFeedback>
     </View>
   );
 };
@@ -15,15 +18,22 @@ const AddStage = props => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    flexGrow: 0,
+    justifyContent: 'space-between',
+    alignItems: 'center'
   },
   input: {
     borderColor: 'black',
     borderWidth: 1,
     marginRight: 10,
-    paddingLeft: 10,
-    paddingRight: 10,
+    padding: 10,
     flexGrow: 2
+  },
+  icon: {
+    height: 20,
+    width: 20,
+    flexGrow: 0,
+    flexShrink: 0
   }
 });
 

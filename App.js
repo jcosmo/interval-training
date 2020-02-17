@@ -3,7 +3,7 @@ import {StyleSheet, View} from 'react-native';
 import AddStage from './components/AddStage';
 import StagesAsFlatList from './components/Stages';
 
-export default function App() {
+const App = () => {
   const [tabs, setTabs] = useState([
     { key: 1, text: 'bob' },
     { key: 2, text: 'tom' }]);
@@ -18,7 +18,7 @@ export default function App() {
       <StagesAsFlatList tabs={tabs}/>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -26,3 +26,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   }
 });
+
+export default App;
