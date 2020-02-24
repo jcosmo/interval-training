@@ -5,10 +5,19 @@ import {TouchableWithoutFeedback} from 'react-native-web';
 const AddStage = props => {
   const [newStageText, setNewStageText] = useState('');
 
+  const onAdd = () => {
+    let text = newStageText.trim();
+    if ('' !== text) {
+      setNewStageText('');
+      props.onAdd(text);
+    }
+  };
+
   return (
     <View style={styles.container}>
-      <TextInput style={styles.input} value={newStageText} onChangeText={setNewStageText} placeholder='aaa'/>
-      <TouchableWithoutFeedback onPress={props.action.bind(this, newStageText)}>
+      <TextInput style={styles.input} value={newStageText} onChangeText={setNewStageText} onSubmitEditing={onAdd}
+                 placeholder='aaa'/>
+      <TouchableWithoutFeedback onPress={onAdd}>
         <Image style={styles.icon} source={require('../assets/add.png')}/>
       </TouchableWithoutFeedback>
     </View>
@@ -20,7 +29,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexGrow: 0,
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginBottom: 5
   },
   input: {
     borderColor: 'black',
