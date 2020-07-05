@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import AddStage from './components/AddStage';
 import Stages from './components/Stages';
+import Go from './components/Go';
 
 const App = () => {
     const [tabs, setTabs] = useState([
@@ -26,6 +27,7 @@ const App = () => {
       <View style={styles.container}>
         <AddStage onAdd={addStage}/>
         <Stages tabs={tabs} onRemove={removeStage}/>
+        <Go />
       </View>
     );
   }
