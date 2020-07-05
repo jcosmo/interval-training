@@ -33,8 +33,9 @@ const styles = StyleSheet.create({
     marginBottom: 5
   },
   input: {
-    borderColor: 'black',
+    borderColor: '#777',
     borderWidth: 1,
+    borderRadius: 3,
     marginRight: 10,
     padding: 10,
     flexGrow: 2
