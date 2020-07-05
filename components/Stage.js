@@ -3,6 +3,14 @@ import {Image, StyleSheet, Text, View} from 'react-native';
 import {TouchableWithoutFeedback} from 'react-native-web';
 
 const Stage = props => {
+  const actions = () => {
+    if (props.editable) {
+      return <TouchableWithoutFeedback onPress={props.onRemove}>
+        <Image style={styles.icon} source={require('../assets/delete.png')}/>
+      </TouchableWithoutFeedback>;
+    }
+  };
+
   return (
     <View key={props.data.id} style={[styles.stage,
                                       styles[props.data.state]]}>
@@ -12,9 +20,7 @@ const Stage = props => {
         <Text>Auto proceed : {props.data.autoResume ? 'Yes' : 'No'}</Text>
       </View>
 
-      <TouchableWithoutFeedback onPress={props.onRemove}>
-        <Image style={styles.icon} source={require('../assets/delete.png')}/>
-      </TouchableWithoutFeedback>
+      {actions()}
     </View>
   );
 };
@@ -29,7 +35,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#777',
     borderRadius: 3,
-    backgroundColor: '#EEE',
+    backgroundColor: '#EEE'
   },
 
   leftPanel: {
@@ -50,6 +56,10 @@ const styles = StyleSheet.create({
     width: 15,
     flexGrow: 0,
     flexShrink: 0
+  },
+
+  editing: {
+    backgroundColor: '#CFC'
   },
 
   active: {

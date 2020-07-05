@@ -5,7 +5,7 @@ import Stage from './Stage';
 const Stages = props => {
   return (
     <ScrollView style={styles.stages}>
-      {props.tabs.map((t) => <Stage key={t.id} data={t} onRemove={props.onRemove.bind(this,t.id)}/>)}
+      {props.tabs.map((t) => <Stage key={t.id} data={t} onRemove={props.onRemove.bind(this,t.id)} editable={props.canEdit()}/>)}
     </ScrollView>
   );
 };
