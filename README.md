@@ -1,4 +1,4 @@
-React Native app writen using Expo
+React Native app written using Expo.
 
 ### Preparation
 
@@ -19,3 +19,15 @@ Or
 ### Icons
 
 From font awesome, converted svg -> png.
+
+### TODO
+
+ - Introduce schedules page
+ - Editing of stages
+ - Reordering of stages
+ - Properties of a schedule - name only?
+ - Loops, infinite and finite
+ - Mobx
+ - Persistent storage
+   - https://medium.com/@Zwenza/how-to-persist-your-mobx-state-4b48b3834a41
+ - Splash screen
