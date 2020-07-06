@@ -1,14 +1,16 @@
 import {inject, observer} from 'mobx-react';
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import {TouchableWithoutFeedback} from 'react-native-web';
+import {Button} from 'react-native-web';
 
 const ScheduleSummary =
-  observer(({schedule}) => {
+  observer(({navigation, schedule}) => {
     return (
       <View style={styles.scheduleSummary}>
         <Text>{schedule.name}</Text>
-        <Text>open</Text>
+        <Button title="open"
+          onPress={() => navigation.navigate('Schedule', {scheduleId: schedule.id})}
+        />
       </View>
     );
   })

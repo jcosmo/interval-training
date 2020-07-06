@@ -4,13 +4,13 @@ import {View, Text, ScrollView, StyleSheet} from 'react-native';
 import ScheduleSummary from './ScheduleSummary';
 
 const ScheduleList = inject(stores => ({ scheduleStore: stores.rootStore.scheduleStore }))(
-  observer(({scheduleStore}) => {
+  observer(({navigation, scheduleStore}) => {
     if (scheduleStore.loading) {
       return <View><Text>Loading...</Text></View>;
     }
     return (
       <ScrollView style={styles.scheduleList}>
-        {scheduleStore.schedules.map((s) => <ScheduleSummary schedule={s}/>)}
+        {scheduleStore.schedules.map((s) => <ScheduleSummary navigation={navigation} schedule={s}/>)}
       </ScrollView>
     );
   }))
