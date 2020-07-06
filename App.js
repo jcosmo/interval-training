@@ -1,12 +1,16 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import Schedule from './components/Schedule';
+import {Provider} from 'mobx-react';
+import ScheduleList from './components/ScheduleList';
+import RootStore from './stores/RootStore';
 
 const App = () => {
     return (
-      <View style={styles.container}>
-        <Schedule/>
-      </View>
+      <Provider rootStore={new RootStore()}>
+        <View style={styles.container}>
+          <ScheduleList/>
+        </View>
+      </Provider>
     );
   }
 ;
