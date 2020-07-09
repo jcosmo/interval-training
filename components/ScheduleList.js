@@ -10,7 +10,7 @@ const ScheduleList = inject(stores => ({ scheduleStore: stores.rootStore.schedul
     }
     return (
       <ScrollView style={styles.scheduleList}>
-        {scheduleStore.schedules.map((s) => <ScheduleSummary navigation={navigation} schedule={s}/>)}
+        {scheduleStore.schedules.map((s) => <ScheduleSummary schedule={s}/>)}
       </ScrollView>
     );
   }))

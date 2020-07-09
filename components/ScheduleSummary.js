@@ -1,10 +1,12 @@
-import {inject, observer} from 'mobx-react';
+import {observer} from 'mobx-react';
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {Button} from 'react-native-web';
+import { useNavigation } from '@react-navigation/native';
 
 const ScheduleSummary =
-  observer(({navigation, schedule}) => {
+  observer(({schedule}) => {
+    const navigation = useNavigation();
     return (
       <View style={styles.scheduleSummary}>
         <Text>{schedule.name}</Text>
